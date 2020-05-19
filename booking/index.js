@@ -21,7 +21,7 @@ let location_template = ({
         </head>
         <body>
           <h2>Welcome to office booking app</h2>
-          <form name="quizform" action="/bookdate" method="POST">
+          <form name="bookform" action="/bookdate" method="POST">
             <p>Please select office location:</p>
             <select name="location">
                 <option value="1">${option1}</option>
