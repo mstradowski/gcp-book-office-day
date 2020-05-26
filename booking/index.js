@@ -10,21 +10,7 @@ admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
 
-const template = require('./template');
-
-//HTML Template for successful booking
-let successful_booking_template = () => {
-    return `
-      <!DOCTYPE html>
-      <html>
-        <head>
-        </head>
-        <body>
-          <h2>Welcome to office booking app</h2>
-          <p>Great. <a href="/getBookingForm">Book another day</a></p>
-        </body>
-      </html>`;
-}
+const template = require('./htmltemplates');
 
 //function to get booking form and generate list of locations
 exports.getBookingForm = (req, res) => {
@@ -34,7 +20,7 @@ exports.getBookingForm = (req, res) => {
             if (!doc.exists) {
                 throw new Error("No such document");
             } else {
-                const templatedHtml = template({
+                const templatedHtml = template.bookingForm({
                     option1: doc.get('option1'),
                     option2: doc.get('option2'),
                     option3: doc.get('option3'),
@@ -68,6 +54,6 @@ exports.bookdate = (req, res) => {
     timestamp: Date.now()
   });
 
-  res.status(200).send(successful_booking_template());
+  res.status(200).send(template.successfulBooking());
 
 }

@@ -1,7 +1,8 @@
 // Template file that the server will use to inject the HTML markup and
 // initial state before sending it to the client
 
-const template = ({
+//HTML Template for booking form
+const booking_form_template = ({
     option1,
     option2,
     option3,
@@ -35,4 +36,19 @@ const template = ({
   `;
 };
 
-module.exports = template;
+//HTML Template for successful booking
+const successful_booking_template = () => {
+    return `
+      <!DOCTYPE html>
+      <html>
+        <head>
+        </head>
+        <body>
+          <h2>Welcome to office booking app</h2>
+          <p>Great. <a href="/getBookingForm">Book another day</a></p>
+        </body>
+      </html>`;
+}
+
+module.exports.bookingForm = booking_form_template;
+module.exports.successfulBooking = successful_booking_template;
