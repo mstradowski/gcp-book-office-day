@@ -6,7 +6,8 @@ const booking_form_template = ({
     option1,
     option2,
     option3,
-    option4
+    option4,
+    table
 }) => {
   return `
   <!DOCTYPE html>
@@ -15,13 +16,13 @@ const booking_form_template = ({
     </head>
     <body>
       <h2>Welcome to office booking app</h2>
-      <form name="bookform" action="/bookdate" method="POST">
+      <form name="bookform" action="/bookDate" method="POST">
         <p>Please select office location:</p>
         <select name="location">
-            <option value="1">${option1}</option>
-            <option value="2">${option2}</option>
-            <option value="3">${option3}</option>
-            <option value="4">${option4}</option>
+            <option value="${option1}">${option1}</option>
+            <option value="${option2}">${option2}</option>
+            <option value="${option3}">${option3}</option>
+            <option value="${option4}">${option4}</option>
         </select>
         <p>email:</p>
         <input type="text" id="iemail" name="iemail">
@@ -31,6 +32,7 @@ const booking_form_template = ({
         <input type="text" id="itime" name="itime">
         <input name="submit" type="submit"/>
       </form>
+      <div name="table">${table}</div>
     </body>
   </html>
   `;
